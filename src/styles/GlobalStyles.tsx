@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     padding-left: 0;
     margin: 0;
   }
-  
+
   button {
     border: none;
     font: inherit;
@@ -36,6 +36,10 @@ const GlobalStyles = createGlobalStyle`
   input {
     font: inherit;
     padding: 5px;
+  }
+
+  img {
+    max-width: 100%;
   }
 `;
 
