@@ -8,6 +8,7 @@ const PlantsPageStyled = styled.main`
     font-family: ${({ theme }) => theme.typography.secondaryFont};
     font-weight: 300;
     font-size: 1.25rem;
+    line-height: 1.3125rem;
   }
 `;
 
