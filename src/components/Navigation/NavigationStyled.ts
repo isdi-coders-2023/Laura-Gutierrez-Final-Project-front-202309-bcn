@@ -6,7 +6,7 @@ const NavigationStyled = styled.nav`
     border: 5px solid #6b6549;
     background: #7e5940;
     display: flex;
-    width: 23.44rem;
+    width: 23.4375rem;
     max-width: 100%;
     height: 5rem;
     padding-top: 8px;
