@@ -3,6 +3,7 @@ import styled from "styled-components";
 const PlantsPageStyled = styled.main`
   padding-top: 16px;
   text-align: left;
+  padding: 10px;
 
   .plantspage-text {
     font-family: ${({ theme }) => theme.typography.secondaryFont};
