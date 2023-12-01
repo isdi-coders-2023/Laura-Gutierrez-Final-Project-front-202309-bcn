@@ -1,27 +1,17 @@
-import { ThemeProvider } from "styled-components";
-import { render, screen } from "@testing-library/react";
-import mainTheme from "../../styles/mainTheme";
+import { screen } from "@testing-library/react";
+import customRender from "../../testUtils/CustomRender";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 
 describe("Given an App component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show a heading with the text 'Herbolarium'", () => {
-      const expectedHeadingText = "Herbolarium";
+    test("Then it should show 'Herbolarium logo with a cauldrum and herbs' logo", () => {
+      const expectedAltText = "Herbolarium logo with a cauldrum and herbs";
 
-      render(
-        <BrowserRouter>
-          <ThemeProvider theme={mainTheme}>
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>,
-      );
+      customRender(<App />);
 
-      const currentHeadingText = screen.getByRole("heading", {
-        name: expectedHeadingText,
-      });
+      const headerLogo = screen.getByAltText(expectedAltText);
 
-      expect(currentHeadingText).toBeInTheDocument();
+      expect(headerLogo).toBeInTheDocument();
     });
   });
 });

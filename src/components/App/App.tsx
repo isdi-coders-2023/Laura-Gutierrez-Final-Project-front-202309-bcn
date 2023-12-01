@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AppStyled from "./AppStyled";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
+import PlantsPage from "../../pages/PlantsPage/PlantsPage";
 
 const App = (): React.ReactElement => {
   return (
@@ -9,9 +10,9 @@ const App = (): React.ReactElement => {
       <Header />
       <Navigation />
       <main>
-        <h1>Herbolarium</h1>
         <Routes>
-          <Route path="/" element={<Navigate to="plants" />} />
+          <Route path="/" element={<Navigate to="/plants" />} />
+          <Route path="/plants" element={<PlantsPage />} />
         </Routes>
       </main>
     </AppStyled>
