@@ -13,7 +13,7 @@ const PlantsPage = (): React.ReactElement => {
 
   return (
     <PlantsPageStyled>
-      <h1 className="homepage-text">
+      <h1 className="plantspage-text">
         This is your online inventory of ethnobotanical plants. Mark if they're
         in your pantry and learn all about them.
       </h1>

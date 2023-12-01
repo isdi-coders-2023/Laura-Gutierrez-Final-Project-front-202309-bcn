@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 const PlantsPageStyled = styled.main`
-  padding-top: 145px;
-  text-align: center;
+  padding-top: 16px;
+  text-align: left;
+  padding: 10px;
 
-  .plantsPage-text {
-    font-size: 23px;
-    font-weight: 400;
+  .plantspage-text {
+    font-family: ${({ theme }) => theme.typography.secondaryFont};
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.3125rem;
   }
 `;
 
