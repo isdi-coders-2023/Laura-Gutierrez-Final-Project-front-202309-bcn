@@ -10,13 +10,13 @@ import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={mainTheme}>
-        <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={mainTheme}>
           <GlobalStyles />
           <App />
-        </Provider>
-      </ThemeProvider>
-    </BrowserRouter>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 );
