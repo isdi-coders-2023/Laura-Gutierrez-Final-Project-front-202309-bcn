@@ -7,7 +7,7 @@ const Navigation = (): React.ReactElement => {
       <ul className="navigation">
         <li>
           <NavLink to="/plants">
-            <img src="images/Home.svg" alt="Home icon with a house drawing." />
+            <img src="images/home.svg" alt="Home icon with a house drawing." />
           </NavLink>
         </li>
         <li>
