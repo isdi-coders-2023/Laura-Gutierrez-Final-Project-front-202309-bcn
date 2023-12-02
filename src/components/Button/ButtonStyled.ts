@@ -8,12 +8,14 @@ const ButtonStyled = styled.button`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background-color: ${({ theme }) => theme.colors.dark};
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  .pantry {
+  &.pantry {
     width: 3.4375rem;
     height: 3.4375rem;
-    background-image: "images/pantry.svg";
+    background-image: url(https://i.ibb.co/h8nV3Y4/try4.webp);
   }
 `;
 
