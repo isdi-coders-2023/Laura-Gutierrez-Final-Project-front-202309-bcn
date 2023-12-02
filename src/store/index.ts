@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { plantsReducer } from "./features/plants/plantsSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    plantsState: plantsReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
