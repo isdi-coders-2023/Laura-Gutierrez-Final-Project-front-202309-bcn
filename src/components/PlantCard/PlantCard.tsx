@@ -31,9 +31,9 @@ const PlantCard = ({
           </div>
         </dl>
         <div className="plant-card__button-container">
-          <Button className="pantry" />
-          <Button text={"Modify"} className="regular-button" />
-          <Button text={"Delete"} className="regular-button" />
+          <Button className="pantry" type="button" classModifier="" />
+          <Button text={"Modify"} classModifier="" type="button" />
+          <Button text={"Delete"} classModifier="" type="button" />
         </div>
       </div>
     </PlantCardStyled>
