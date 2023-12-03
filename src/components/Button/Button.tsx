@@ -13,20 +13,14 @@ const Button = ({
   actionOnClick,
   classModifier,
 }: ButtonProps): React.ReactElement => {
+  const className = `button${classModifier ? ` ${classModifier}` : ""}`;
+
   return text ? (
-    <ButtonStyled
-      className={`button ${classModifier ? `button${classModifier}` : ""}`}
-      type={type}
-      onClick={actionOnClick}
-    >
+    <ButtonStyled className={className} type={type} onClick={actionOnClick}>
       {text}
     </ButtonStyled>
   ) : (
-    <ButtonStyled
-      className={`button ${classModifier ? `button${classModifier}` : ""}`}
-      type={type}
-      onClick={actionOnClick}
-    />
+    <ButtonStyled className={className} type={type} onClick={actionOnClick} />
   );
 };
 
