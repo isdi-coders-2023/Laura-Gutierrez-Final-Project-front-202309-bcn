@@ -5,6 +5,7 @@ interface ButtonProps {
   type: "submit" | "button";
   actionOnClick?: () => void;
   classModifier: "--disabled" | "";
+  className?: string;
 }
 
 const Button = ({
@@ -13,7 +14,11 @@ const Button = ({
   actionOnClick,
   classModifier,
 }: ButtonProps): React.ReactElement => {
-  const className = `button${classModifier ? ` ${classModifier}` : ""}`;
+  let className = "button";
+
+  if (classModifier) {
+    className += ` ${classModifier}`;
+  }
 
   return text ? (
     <ButtonStyled className={className} type={type} onClick={actionOnClick}>
