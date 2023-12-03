@@ -2,14 +2,31 @@ import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
   text?: string;
-  className?: string;
+  type: "submit" | "button";
+  actionOnClick?: () => void;
+  classModifier: "--disabled" | "";
 }
 
-const Button = ({ text, className }: ButtonProps): React.ReactElement => {
+const Button = ({
+  text,
+  type,
+  actionOnClick,
+  classModifier,
+}: ButtonProps): React.ReactElement => {
   return text ? (
-    <ButtonStyled className={`${className}`}>{text}</ButtonStyled>
+    <ButtonStyled
+      className={`button ${classModifier ? `button${classModifier}` : ""}`}
+      type={type}
+      onClick={actionOnClick}
+    >
+      {text}
+    </ButtonStyled>
   ) : (
-    <ButtonStyled className="pantry" />
+    <ButtonStyled
+      className={`button ${classModifier ? `button${classModifier}` : ""}`}
+      type={type}
+      onClick={actionOnClick}
+    />
   );
 };
 
