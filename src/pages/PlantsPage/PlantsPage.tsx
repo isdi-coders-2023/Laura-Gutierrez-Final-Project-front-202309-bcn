@@ -1,17 +1,20 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "../../store/hooks";
 import PlantsPageStyled from "./PlantsPageStyled.js";
 import { loadPlantsActionCreator } from "../../store/features/plants/plantsSlice";
-import { plantsMock } from "../../mocks/plantsMock";
 import PlantList from "../../components/PlantList/PlantList.js";
 import usePlantsApi from "../../hooks/UsePlantsApi.js";
+import { useAppDispatch } from "../../store/hooks.js";
 
 const PlantsPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
-  const getPlantsApi = usePlantsApi;
+  const { getPlantsApi } = usePlantsApi();
 
   useEffect(() => {
-    dispatch(loadPlantsActionCreator(plantsMock));
+    (async () => {
+      const { plants } = await getPlantsApi();
+
+      dispatch(loadPlantsActionCreator(plants));
+    })();
   }, [dispatch, getPlantsApi]);
 
   return (
