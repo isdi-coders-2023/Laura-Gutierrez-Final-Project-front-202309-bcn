@@ -6,8 +6,8 @@ const PlantCardStyled = styled.article`
   height: 24.125rem;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.5rem;
-  border: 1px solid var(--ink-gray, #bebab3);
+  border-radius: 2rem;
+  border: 1px solid ${({ theme }) => theme.colors.medium};
 
   .plant-card__button-container {
     display: grid;
@@ -29,11 +29,18 @@ const PlantCardStyled = styled.article`
     line-height: normal;
   }
 
-  .plant-card__image {
+  .plant-card__image-container {
     height: 10.375rem;
     align-self: stretch;
     border-radius: 0.125rem;
-    background: lightgray 50% / cover no-repeat;
+    background: ${({ theme }) => theme.colors.dark};
+    background-size: cover;
+  }
+
+  .plant-card__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 `;
 

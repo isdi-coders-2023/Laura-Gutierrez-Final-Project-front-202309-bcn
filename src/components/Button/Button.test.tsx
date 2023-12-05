@@ -10,7 +10,12 @@ describe("Given a Button component", () => {
       const mockData = plantsMock;
 
       customRender(
-        <Button text={expectedButtonText} type="button" classModifier="" />,
+        <Button
+          text={expectedButtonText}
+          type="button"
+          classModifier=""
+          aria-label="button"
+        />,
         mockData,
       );
       const button = screen.getByRole("button", { name: expectedButtonText });

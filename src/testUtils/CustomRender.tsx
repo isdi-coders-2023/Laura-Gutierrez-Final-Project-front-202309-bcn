@@ -42,24 +42,4 @@ export const providerWrapper = ({ children }: PropsWithChildren) => {
   return <Provider store={mockStore}>{children}</Provider>;
 };
 
-export const customRenderWithoutRouter = (
-  children: React.ReactElement,
-  mockData: PlantsStructure[],
-) => {
-  const mockStore = configureStore({
-    reducer: { plantsState: plantsReducer, uiState: uiReducer },
-    preloadedState: {
-      plantsState: { plants: mockData },
-      uiState: { isLoading: false },
-    },
-  });
-
-  render(
-    <ThemeProvider theme={mainTheme}>
-      <GlobalStyles />
-      <Provider store={mockStore}>{children}</Provider>
-    </ThemeProvider>,
-  );
-};
-
 export default customRender;

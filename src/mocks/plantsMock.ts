@@ -10,7 +10,7 @@ export const plantsMock: PlantsStructure[] = [
       "Relieves headaches and throat aches. It's a natural constipation remedy. Relieves cough and asthma symptoms.",
     howToUse:
       "Use it in many savoury dishes as seasoning, also in sauces. You can consume oregano oil in capsules. ",
-    imageUrl: "https://i.ibb.co/pxK6J2P/origano.webp",
+    image_url: "https://i.ibb.co/pxK6J2P/origano.webp",
     isPoisonous: false,
     habitat: "Grasslands, bushes, rocky areas.",
   },
@@ -22,7 +22,7 @@ export const plantsMock: PlantsStructure[] = [
     properties: "Antimigratory and  antiangiogenic effects",
     howToUse:
       "used for the treatment of different kinds of disorders including seizure, ulcers, gout, rheumatism, inflammation, dizziness, tremor, paralysis, diarrhea, and hyperglycemia.",
-    imageUrl: "https://i.ibb.co/Bj0rNqq/Salvia-officinalis.webp",
+    image_url: "https://i.ibb.co/Bj0rNqq/Salvia-officinalis.webp",
     isPoisonous: false,
     habitat: "Mediterranean warm arid areas.",
   },

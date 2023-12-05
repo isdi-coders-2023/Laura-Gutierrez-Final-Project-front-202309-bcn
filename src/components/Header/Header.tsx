@@ -5,7 +5,7 @@ const Header = () => {
     <HeaderStyled>
       <img
         className="header-image"
-        src="images/header3.jpg"
+        src="images/header3.webp"
         alt="Herbolarium logo with a cauldrum and herbs"
         title="Herbolarium"
         width="500"
