@@ -9,11 +9,18 @@ import { plantsMock } from "../mocks/plantsMock";
 import { plantsReducer } from "../store/features/plants/plantsSlice";
 import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";
+import { PlantsStructure } from "../store/features/types.js";
 
-const customRender = (children: React.ReactElement) => {
+const customRender = (
+  children: React.ReactElement,
+  mockData: PlantsStructure[],
+) => {
   const mockStore = configureStore({
-    reducer: { plantsState: plantsReducer },
-    preloadedState: { plantsState: { plants: plantsMock } },
+    reducer: { plantsState: plantsReducer, uiState: uiReducer },
+    preloadedState: {
+      plantsState: { plants: mockData },
+      uiState: { isLoading: false },
+    },
   });
 
   render(
@@ -35,11 +42,14 @@ export const providerWrapper = ({ children }: PropsWithChildren) => {
   return <Provider store={mockStore}>{children}</Provider>;
 };
 
-export const customRenderWithoutRouter = (children: React.ReactElement) => {
+export const customRenderWithoutRouter = (
+  children: React.ReactElement,
+  mockData: PlantsStructure[],
+) => {
   const mockStore = configureStore({
     reducer: { plantsState: plantsReducer, uiState: uiReducer },
     preloadedState: {
-      plantsState: { plants: plantsMock },
+      plantsState: { plants: mockData },
       uiState: { isLoading: false },
     },
   });
