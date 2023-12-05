@@ -12,21 +12,11 @@ const Button = ({
   text,
   type,
   actionOnClick,
-  classModifier,
 }: ButtonProps): React.ReactElement => {
-  let className = "button";
-
-  if (classModifier) {
-    className += ` ${classModifier}`;
-  }
+  const className = "button";
 
   return text ? (
-    <ButtonStyled
-      className={className}
-      type={type}
-      onClick={actionOnClick}
-      aria-label="button"
-    >
+    <ButtonStyled className={className} type={type} onClick={actionOnClick}>
       {text}
     </ButtonStyled>
   ) : (
@@ -34,7 +24,6 @@ const Button = ({
       className={"plant-card__pantry"}
       type={type}
       onClick={actionOnClick}
-      aria-label="button"
     />
   );
 };
