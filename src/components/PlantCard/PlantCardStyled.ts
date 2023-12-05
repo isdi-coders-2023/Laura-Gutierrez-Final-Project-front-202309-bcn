@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 const PlantCardStyled = styled.article`
+  gap: 1rem;
   display: flex;
   width: 21.4375rem;
   height: 24.125rem;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-left: 2rem;
+  align-items: center;
   border-radius: 2rem;
   border: 1px solid ${({ theme }) => theme.colors.medium};
+  flex-direction: column;
+  justify-content: space-around;
 
   .plant-card__button-container {
     display: grid;
