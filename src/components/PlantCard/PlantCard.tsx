@@ -7,17 +7,19 @@ interface PlantCardProps {
 }
 
 const PlantCard = ({
-  plant: { name, imageUrl, use, scientific_name },
+  plant: { name, image_url, use, scientific_name },
 }: PlantCardProps): React.ReactElement => {
   return (
     <PlantCardStyled className="card">
-      <img
-        className="plant-card__image"
-        src={imageUrl}
-        alt={name}
-        width="300"
-        height="300"
-      />
+      <div className="plant-card__image-container">
+        <img
+          className="plant-card__image"
+          src={image_url}
+          alt={name}
+          width="300"
+          height="300"
+        />
+      </div>
       <div className="plant-card">
         <ul className="plant-card__info-container">
           <li className="plant-card__details">
@@ -37,11 +39,27 @@ const PlantCard = ({
             className="plant-card__pantry"
             type="button"
             classModifier=""
+            aria-label="Pantry"
           />
           <div className="plant-card__large-buttons">
-            <Button text={"Learn more"} classModifier="" type="button" />
-            <Button text={"Modify"} classModifier="" type="button" />
-            <Button text={"Delete"} classModifier="" type="button" />
+            <Button
+              text={"Learn more"}
+              classModifier=""
+              type="button"
+              aria-label="Learn more"
+            />
+            <Button
+              text={"Modify"}
+              classModifier=""
+              type="button"
+              aria-label="Modify"
+            />
+            <Button
+              text={"Delete"}
+              classModifier=""
+              type="button"
+              aria-label="Delete"
+            />
           </div>
         </div>
       </div>

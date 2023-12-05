@@ -6,6 +6,7 @@ const NavigationStyled = styled.nav`
     border: 5px solid #6b6549;
     background-color: ${({ theme }) => theme.colors.darker};
     display: flex;
+    width: 100%;
     height: 5rem;
     padding-top: 8px;
     flex-direction: row;
