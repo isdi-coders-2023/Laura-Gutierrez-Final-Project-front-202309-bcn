@@ -38,28 +38,12 @@ const PlantCard = ({
           <Button
             className="plant-card__pantry"
             type="button"
-            classModifier=""
             aria-label="Pantry"
           />
           <div className="plant-card__large-buttons">
-            <Button
-              text={"Learn more"}
-              classModifier=""
-              type="button"
-              aria-label="Learn more"
-            />
-            <Button
-              text={"Modify"}
-              classModifier=""
-              type="button"
-              aria-label="Modify"
-            />
-            <Button
-              text={"Delete"}
-              classModifier=""
-              type="button"
-              aria-label="Delete"
-            />
+            <Button text={"Learn more"} type="button" aria-label="Learn more" />
+            <Button text={"Modify"} type="button" aria-label="Modify" />
+            <Button text={"Delete"} type="button" aria-label="Delete" />
           </div>
         </div>
       </div>
