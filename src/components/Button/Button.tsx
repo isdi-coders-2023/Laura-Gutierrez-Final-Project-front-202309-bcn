@@ -25,7 +25,11 @@ const Button = ({
       {text}
     </ButtonStyled>
   ) : (
-    <ButtonStyled className={className} type={type} onClick={actionOnClick} />
+    <ButtonStyled
+      className={"plant-card__pantry"}
+      type={type}
+      onClick={actionOnClick}
+    />
   );
 };
 

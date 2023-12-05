@@ -5,7 +5,6 @@ const HeaderStyled = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 
   .header-image {
     object-fit: cover;

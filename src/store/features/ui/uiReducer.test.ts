@@ -6,7 +6,7 @@ import {
 } from "./uiSlice";
 
 describe("Given a showLoading slice", () => {
-  describe("When it receives a currentUiState with the property isLoading set in 'false'", () => {
+  describe("When it receives a currentUiState with the property isLoading set to 'false'", () => {
     test("Then it should change it to 'true'", () => {
       const isLoadingFalse = uiReducer(
         initialUiState,
@@ -20,7 +20,7 @@ describe("Given a showLoading slice", () => {
 });
 
 describe("Given a hideLoading slice", () => {
-  describe("When it receives a currentUiState with the property isLoadin set to 'true'", () => {
+  describe("When it receives a currentUiState with the property isLoading set to 'true'", () => {
     test("Then it should change it to 'false'", () => {
       const isLoadingTrue = uiReducer(
         initialUiState,

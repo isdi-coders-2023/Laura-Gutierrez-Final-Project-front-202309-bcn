@@ -7,7 +7,7 @@ interface PlantCardProps {
 }
 
 const PlantCard = ({
-  plant: { name, imageUrl, use, scientificName },
+  plant: { name, imageUrl, use, scientific_name },
 }: PlantCardProps): React.ReactElement => {
   return (
     <PlantCardStyled className="card">
@@ -19,21 +19,30 @@ const PlantCard = ({
         height="300"
       />
       <div className="plant-card">
-        <dl className="plant-card__info-container">
-          <div className="plant-card__details">
-            <dd className="plant-card__use">{use}</dd>
-          </div>
-          <div className="plant-card__details">
+        <ul className="plant-card__info-container">
+          <li className="plant-card__details">
+            <span className="plant-card__use">{use}</span>
+          </li>
+          <li className="plant-card__details">
             <h2 className="plant-name">{name}</h2>
-          </div>
-          <div className="plant-card__details">
-            <dd className="plant-card__scientificName">{scientificName}</dd>
-          </div>
-        </dl>
+          </li>
+          <li className="plant-card__details">
+            <span className="plant-card__scientificName">
+              {scientific_name}
+            </span>
+          </li>
+        </ul>
         <div className="plant-card__button-container">
-          <Button className="pantry" type="button" classModifier="" />
-          <Button text={"Modify"} classModifier="" type="button" />
-          <Button text={"Delete"} classModifier="" type="button" />
+          <Button
+            className="plant-card__pantry"
+            type="button"
+            classModifier=""
+          />
+          <div className="plant-card__large-buttons">
+            <Button text={"Learn more"} classModifier="" type="button" />
+            <Button text={"Modify"} classModifier="" type="button" />
+            <Button text={"Delete"} classModifier="" type="button" />
+          </div>
         </div>
       </div>
     </PlantCardStyled>

@@ -1,7 +1,7 @@
 export interface PlantsStructure {
   _id: string;
   name: string;
-  scientificName: string;
+  scientific_name: string;
   use: string;
   properties: string;
   howToUse: string;
@@ -12,4 +12,9 @@ export interface PlantsStructure {
 
 export interface PlantsStateStructure {
   plants: PlantsStructure[];
+}
+
+export interface UiStructure {
+  isLoading?: boolean;
+  isError?: boolean;
 }
