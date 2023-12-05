@@ -13,12 +13,10 @@ const App = (): React.ReactElement => {
       <Header />
       {uiState.isLoading && <Loading />}
       <Navigation />
-      <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/plants" />} />
-          <Route path="/plants" element={<PlantsPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Navigate to="/plants" />} />
+        <Route path="/plants" element={<PlantsPage />} />
+      </Routes>
     </AppStyled>
   );
 };
