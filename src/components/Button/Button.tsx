@@ -4,7 +4,6 @@ interface ButtonProps {
   text?: string;
   type: "submit" | "button";
   actionOnClick?: () => void;
-  classModifier: "--disabled" | "";
   className?: string;
 }
 
