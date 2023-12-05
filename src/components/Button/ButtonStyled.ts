@@ -11,8 +11,14 @@ const ButtonStyled = styled.button`
   border-radius: 0.625rem;
   background-color: ${({ theme }) => theme.colors.dark};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: ${({ theme }) => theme.typography.mainFont};
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 
-  &.pantry {
+  &.plant-card__pantry {
+    margin-top: 1rem;
     width: 3.4375rem;
     height: 3.4375rem;
     background-image: url(https://i.ibb.co/h8nV3Y4/try4.webp);
