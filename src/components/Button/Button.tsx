@@ -21,12 +21,7 @@ const Button = ({
   }
 
   return text ? (
-    <ButtonStyled
-      className={className}
-      type={type}
-      onClick={actionOnClick}
-      aria-label="button"
-    >
+    <ButtonStyled className={className} type={type} onClick={actionOnClick}>
       {text}
     </ButtonStyled>
   ) : (
@@ -34,7 +29,6 @@ const Button = ({
       className={"plant-card__pantry"}
       type={type}
       onClick={actionOnClick}
-      aria-label="button"
     />
   );
 };
