@@ -10,6 +10,7 @@ const PlantsPageStyled = styled.main`
     font-weight: 300;
     font-size: 1.25rem;
     line-height: 1.3125rem;
+    padding-bottom: 1rem;
   }
 `;
 

@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 const PlantCardStyled = styled.article`
-  gap: 1rem;
   display: flex;
-  width: 21.4375rem;
-  height: 24.125rem;
-  margin-left: 2rem;
+  height: 27.125rem;
   align-items: center;
   border-radius: 2rem;
-  border: 1px solid ${({ theme }) => theme.colors.medium};
+  border: 0.5px solid ${({ theme }) => theme.colors.darker};
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 
   .plant-card__button-container {
     display: grid;
@@ -34,8 +32,9 @@ const PlantCardStyled = styled.article`
 
   .plant-card__image-container {
     height: 10.375rem;
-    align-self: stretch;
-    border-radius: 0.125rem;
+    align-self: center;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
     background: ${({ theme }) => theme.colors.dark};
     background-size: cover;
   }
