@@ -1,4 +1,10 @@
+import usePlantsApi from "../../hooks/UsePlantsApi.js";
+import {
+  deletePlantsActionCreator,
+  loadPlantsActionCreator,
+} from "../../store/features/plants/plantsSlice.js";
 import { PlantsStructure } from "../../store/features/types";
+import { useAppDispatch } from "../../store/hooks.js";
 import Button from "../Button/Button.js";
 import PlantCardStyled from "./PlantCardStyled.js";
 
@@ -6,9 +12,25 @@ interface PlantCardProps {
   plant: PlantsStructure;
 }
 
-const PlantCard = ({
-  plant: { name, image_url, use, scientific_name },
-}: PlantCardProps): React.ReactElement => {
+const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
+  const { name, image_url, use, scientific_name, _id } = plant;
+
+  const dispatch = useAppDispatch();
+  const { deletePlantFromApi, getPlantsApi } = usePlantsApi();
+
+  const deletePlant = async (id: string): Promise<void> => {
+    await deletePlantFromApi(id);
+    dispatch(deletePlantsActionCreator(id));
+
+    const plantsResponse = await getPlantsApi();
+    if (plantsResponse) {
+      const plants = plantsResponse.plants;
+      dispatch(loadPlantsActionCreator(plants));
+    } else {
+      throw new Error("Plant not found.");
+    }
+  };
+
   return (
     <PlantCardStyled className="card">
       <div className="plant-card__image-container">
@@ -43,7 +65,14 @@ const PlantCard = ({
           <div className="plant-card__large-buttons">
             <Button text={"Learn more"} type="button" aria-label="Learn more" />
             <Button text={"Modify"} type="button" aria-label="Modify" />
-            <Button text={"Delete"} type="button" aria-label="Delete" />
+            <Button
+              text={"Delete"}
+              type="button"
+              aria-label="Delete"
+              actionOnClick={() => {
+                deletePlant(_id);
+              }}
+            />
           </div>
         </div>
       </div>

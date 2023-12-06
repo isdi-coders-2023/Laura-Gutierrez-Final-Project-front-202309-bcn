@@ -22,7 +22,7 @@ describe("Given a usePlantsApi custom hook", () => {
   });
 
   describe("When it calls the deletePlant method with Salvia's id", () => {
-    test.only("Then it should delete the plant 'Salvia' from the database", async () => {
+    test("Then it should delete the plant 'Salvia' from the database", async () => {
       const expectedPlantId = plantsMock[1]._id;
       const expectedEmptyObject = {};
 

@@ -11,9 +11,12 @@ const PlantsPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const { plants } = await getPlantsApi();
+      const response = await getPlantsApi();
+      const plants = response?.plants;
 
-      dispatch(loadPlantsActionCreator(plants));
+      if (plants) {
+        dispatch(loadPlantsActionCreator(plants));
+      }
     })();
   }, [dispatch, getPlantsApi]);
 

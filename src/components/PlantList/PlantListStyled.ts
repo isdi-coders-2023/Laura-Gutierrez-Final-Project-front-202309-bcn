@@ -4,7 +4,7 @@ const BallsListStyled = styled.ul`
   display: grid;
   grid-template-columns: 300px;
   align-items: start;
-  gap: 30px;
+  gap: 20px;
 
   @media (min-width: 686px) {
     display: grid;
