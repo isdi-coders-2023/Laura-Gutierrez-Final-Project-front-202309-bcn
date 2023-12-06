@@ -7,16 +7,14 @@ import {
   showLoadingActionCreator,
 } from "../store/features/ui/uiSlice";
 
-interface UsePlantsApiStructure {
-  getPlantsApi: () => Promise<PlantsStateStructure>;
-}
-
-const usePlantsApi = (): UsePlantsApiStructure => {
+const usePlantsApi = () => {
   axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
   const dispatch = useAppDispatch();
 
-  const getPlantsApi = useCallback(async (): Promise<PlantsStateStructure> => {
+  const getPlantsApi = useCallback(async (): Promise<
+    PlantsStateStructure | undefined
+  > => {
     dispatch(showLoadingActionCreator());
 
     const { data: plants } = await axios.get<{ plants: PlantsStructure[] }>(
@@ -28,7 +26,20 @@ const usePlantsApi = (): UsePlantsApiStructure => {
     return plants;
   }, [dispatch]);
 
-  return { getPlantsApi };
+  const deletePlantFromApi = useCallback(
+    async (id: string): Promise<void> => {
+      dispatch(showLoadingActionCreator());
+
+      const { data } = await axios.delete(`/plants/${id}`);
+
+      dispatch(hideLoadingActionCreator());
+
+      return data;
+    },
+    [dispatch],
+  );
+
+  return { getPlantsApi, deletePlantFromApi };
 };
 
 export default usePlantsApi;
