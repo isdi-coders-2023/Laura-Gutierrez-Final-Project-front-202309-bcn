@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../styles/mainTheme.js";
@@ -25,13 +25,15 @@ const customRender = (
   });
 
   render(
-    <BrowserRouter>
-      <ToastContainer />
-      <GlobalStyles />
-      <ThemeProvider theme={mainTheme}>
-        <Provider store={mockStore}>{children}</Provider>
-      </ThemeProvider>
-    </BrowserRouter>,
+    <MemoryRouter>
+      <Provider store={mockStore}>
+        <ThemeProvider theme={mainTheme}>
+          <ToastContainer />
+          <GlobalStyles />
+          {children}
+        </ThemeProvider>
+      </Provider>
+    </MemoryRouter>,
   );
 };
 

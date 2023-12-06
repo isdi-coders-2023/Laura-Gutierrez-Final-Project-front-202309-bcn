@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const BallsListStyled = styled.ul`
+const PlantListStyled = styled.ul`
   display: grid;
   grid-template-columns: 300px;
   align-items: start;
   gap: 20px;
+  justify-content: center;
 
   @media (min-width: 686px) {
     display: grid;
@@ -17,4 +18,4 @@ const BallsListStyled = styled.ul`
   }
 `;
 
-export default BallsListStyled;
+export default PlantListStyled;

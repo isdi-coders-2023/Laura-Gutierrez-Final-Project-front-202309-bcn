@@ -40,36 +40,32 @@ describe("Given a PlantCard component", () => {
     });
 
     test("Then it should show the positive feedback message 'Plant removed from our inventory!'", async () => {
-      const expectedMessage = "Plant removed from our inventory!";
-      const mockData = plantsMock;
-
-      customRender(<PlantCard plant={plantsMock[0]} />, mockData);
+      customRender(<PlantCard plant={plantsMock[0]} />, plantsMock);
 
       const deleteButton = screen.getByRole("button", {
         name: expectedButtonText,
       });
 
       await userEvent.click(deleteButton);
+
+      const expectedMessage = "Plant removed from our inventory!";
 
       expect(screen.getByText(expectedMessage)).toBeInTheDocument();
     });
 
     test("Then it should show the negative feedback message 'Error: Couldn’t remove plant. Please try again.'", async () => {
-      const expectedErrorMessage =
-        "Error: Couldn’t remove plant. Please try again.";
-      const mockData = plantsMock;
-
       server.use(...errorHandlers);
 
-      customRender(<PlantCard plant={plantsMock[0]} />, mockData);
+      customRender(<PlantCard plant={plantsMock[0]} />, plantsMock);
 
-      const deleteButton = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
+      const deleteButton = screen.getByText(expectedButtonText);
 
       await userEvent.click(deleteButton);
 
-      await waitFor(() => {
+      const expectedErrorMessage =
+        "Error: Couldn’t remove plant. Please try again.";
+
+      waitFor(async () => {
         expect(screen.getByText(expectedErrorMessage)).toBeInTheDocument();
       });
     });
