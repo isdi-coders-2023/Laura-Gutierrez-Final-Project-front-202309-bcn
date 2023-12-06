@@ -4,7 +4,7 @@ import customRender from "../../testUtils/CustomRender";
 import PlantCard from "./PlantCard";
 import userEvent from "@testing-library/user-event";
 import server from "../../mocks/node";
-import { errorHandlers } from "../../mocks/errorHandlers";
+import { errorHandlers } from "../../mocks/handlers";
 
 describe("Given a PlantCard component", () => {
   describe("When it receives a 'Oregano' card", () => {
