@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import customRender from "../../testUtils/CustomRender";
 import App from "./App";
-import { plantsMock } from "../../mocks/plantsMock";
+import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 
 describe("Given an App component", () => {
   describe("When it's rendered", () => {

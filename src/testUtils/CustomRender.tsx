@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../styles/mainTheme.js";
 import GlobalStyles from "../styles/GlobalStyles";
-import { plantsMock } from "../mocks/plantsMock";
+import { plantsMock } from "../store/features/plants/mocks/plantsMock.js";
 import { plantsReducer } from "../store/features/plants/plantsSlice";
 import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";

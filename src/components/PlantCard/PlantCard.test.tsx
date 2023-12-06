@@ -1,5 +1,5 @@
 import { screen, waitFor } from "@testing-library/react";
-import { plantsMock } from "../../mocks/plantsMock";
+import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 import customRender from "../../testUtils/CustomRender";
 import PlantCard from "./PlantCard";
 import userEvent from "@testing-library/user-event";

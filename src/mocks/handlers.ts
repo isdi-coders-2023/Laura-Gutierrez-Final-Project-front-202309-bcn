@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { plantsMock } from "./plantsMock";
+import { plantsMock } from "../store/features/plants/mocks/plantsMock";
 
 const urlApi = import.meta.env.VITE_API_URL;
 

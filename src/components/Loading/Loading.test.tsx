@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import Loading from "./Loading";
 import customRender from "../../testUtils/CustomRender";
-import { plantsMock } from "../../mocks/plantsMock";
+import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 
 describe("Given a Loading component", () => {
   describe("When it is rendered", () => {

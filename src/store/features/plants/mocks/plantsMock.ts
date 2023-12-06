@@ -1,4 +1,4 @@
-import { type PlantsStructure } from "../store/features/types";
+import { type PlantsStructure } from "../../types";
 
 export const plantsMock: PlantsStructure[] = [
   {

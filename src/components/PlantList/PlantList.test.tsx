@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import customRender from "../../testUtils/CustomRender";
 import PlantList from "./PlantList";
-import { plantsMock } from "../../mocks/plantsMock";
+import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 
 describe("Given a PlantList component", () => {
   describe("When it receives a list with Oregano and Salvia", () => {
