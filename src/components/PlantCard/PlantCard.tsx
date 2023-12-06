@@ -13,7 +13,7 @@ interface PlantCardProps {
 }
 
 const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
-  const { name, image_url, use, scientific_name, _id } = plant;
+  const { name, imageUrl, use, scientificName, _id } = plant;
 
   const dispatch = useAppDispatch();
   const { deletePlantFromApi, getPlantsApi } = usePlantsApi();
@@ -36,7 +36,7 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
       <div className="plant-card__image-container">
         <img
           className="plant-card__image"
-          src={image_url}
+          src={imageUrl}
           alt={name}
           width="300"
           height="300"
@@ -51,9 +51,7 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
             <h2 className="plant-name">{name}</h2>
           </li>
           <li className="plant-card__details">
-            <span className="plant-card__scientificName">
-              {scientific_name}
-            </span>
+            <span className="plant-card__scientificName">{scientificName}</span>
           </li>
         </ul>
         <div className="plant-card__button-container">
@@ -63,10 +61,10 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
             aria-label="Pantry"
           />
           <div className="plant-card__large-buttons">
-            <Button text={"Learn more"} type="button" aria-label="Learn more" />
-            <Button text={"Modify"} type="button" aria-label="Modify" />
+            <Button text="Learn more" type="button" aria-label="Learn more" />
+            <Button text="Modify" type="button" aria-label="Modify" />
             <Button
-              text={"Delete"}
+              text="Delete"
               type="button"
               aria-label="Delete"
               actionOnClick={() => {

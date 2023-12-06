@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { plantsMock } from "../mocks/plantsMock";
+import { plantsMock } from "../store/features/plants/mocks/plantsMock";
 import usePlantsApi from "./UsePlantsApi";
 import { providerWrapper } from "../testUtils/CustomRender";
 import { PlantsStateStructure } from "../store/features/types";

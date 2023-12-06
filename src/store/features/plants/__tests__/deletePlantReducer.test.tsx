@@ -1,4 +1,4 @@
-import { plantsMock } from "../../../../mocks/plantsMock";
+import { plantsMock } from "../mocks/plantsMock";
 import { deletePlantsActionCreator, plantsReducer } from "../plantsSlice";
 import { PlantsStateStructure } from "../types";
 

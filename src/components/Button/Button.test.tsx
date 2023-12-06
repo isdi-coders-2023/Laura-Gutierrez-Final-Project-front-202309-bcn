@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import customRender from "../../testUtils/CustomRender";
 import Button from "./Button";
-import { plantsMock } from "../../mocks/plantsMock";
+import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 
 describe("Given a Button component", () => {
   describe("When it receives the text 'Modify'", () => {
@@ -10,7 +10,6 @@ describe("Given a Button component", () => {
       const mockData = plantsMock;
 
       customRender(
-
         <Button text={expectedButtonText} type="button" />,
 
         mockData,
