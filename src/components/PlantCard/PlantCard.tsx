@@ -13,7 +13,7 @@ interface PlantCardProps {
 }
 
 const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
-  const { name, imageUrl, use, scientific_name, _id } = plant;
+  const { name, imageUrl, use, scientificName, _id } = plant;
 
   const dispatch = useAppDispatch();
   const { deletePlantFromApi, getPlantsApi } = usePlantsApi();
@@ -51,9 +51,7 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
             <h2 className="plant-name">{name}</h2>
           </li>
           <li className="plant-card__details">
-            <span className="plant-card__scientificName">
-              {scientific_name}
-            </span>
+            <span className="plant-card__scientificName">{scientificName}</span>
           </li>
         </ul>
         <div className="plant-card__button-container">

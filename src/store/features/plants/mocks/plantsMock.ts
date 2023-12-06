@@ -4,7 +4,7 @@ export const plantsMock: PlantsStructure[] = [
   {
     _id: "6566158cd11a3f8f1075c7a1",
     name: "Oregano",
-    scientific_name: "Origanum vulgare",
+    scientificName: "Origanum vulgare",
     use: "Culinary/Medicinal",
     properties:
       "Relieves headaches and throat aches. It's a natural constipation remedy. Relieves cough and asthma symptoms.",
@@ -17,7 +17,7 @@ export const plantsMock: PlantsStructure[] = [
   {
     _id: "6566158cd11a3f8f1075c7a2",
     name: "Salvia",
-    scientific_name: "Salvia Officinalis",
+    scientificName: "Salvia Officinalis",
     use: "Medicinal",
     properties: "Antimigratory and  antiangiogenic effects",
     howToUse:
