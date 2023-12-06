@@ -33,4 +33,5 @@ export const {
   loadPlants: loadPlantsActionCreator,
   deletePlant: deletePlantsActionCreator,
 } = plantsSlice.actions;
+
 export const plantsReducer = plantsSlice.reducer;
