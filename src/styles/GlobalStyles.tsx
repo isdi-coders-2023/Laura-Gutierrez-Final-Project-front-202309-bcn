@@ -5,6 +5,10 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+   --toastify-icon-color-success: ${({ theme }) => theme.colors.lighter};
+}
+
   body {
     margin: 0;
     font-family: ${({ theme }) => theme.typography.secondaryFont};
@@ -41,6 +45,8 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  
 `;
 
 export default GlobalStyles;
