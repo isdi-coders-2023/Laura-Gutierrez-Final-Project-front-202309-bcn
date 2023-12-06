@@ -16,8 +16,22 @@ const plantsSlice = createSlice({
       ...currentState,
       plants: action.payload,
     }),
+
+    deletePlant: (
+      currentState,
+      action: PayloadAction<string>,
+    ): PlantsStateStructure => ({
+      ...currentState,
+      plants: currentState.plants.filter(
+        (plant) => plant._id !== action.payload,
+      ),
+    }),
   },
 });
 
-export const { loadPlants: loadPlantsActionCreator } = plantsSlice.actions;
+export const {
+  loadPlants: loadPlantsActionCreator,
+  deletePlant: deletePlantsActionCreator,
+} = plantsSlice.actions;
+
 export const plantsReducer = plantsSlice.reducer;

@@ -1,6 +1,6 @@
-import { plantsMock } from "../../../mocks/plantsMock";
-import { plantsReducer, loadPlantsActionCreator } from "./plantsSlice";
-import { PlantsStateStructure } from "../types";
+import { plantsMock } from "../../../../mocks/plantsMock";
+import { plantsReducer, loadPlantsActionCreator } from "../plantsSlice";
+import { PlantsStateStructure } from "../../types";
 
 describe("Given a plantsReducer", () => {
   describe("When it receives an empty list of plants", () => {

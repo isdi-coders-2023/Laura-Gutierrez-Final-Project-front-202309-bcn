@@ -20,4 +20,21 @@ describe("Given a usePlantsApi custom hook", () => {
       expect(currentPlants).toStrictEqual(expectedPlants);
     });
   });
+
+  describe("When it calls the deletePlant method with Salvia's id", () => {
+    test("Then it should delete the plant 'Salvia' from the database", async () => {
+      const expectedPlantId = plantsMock[1]._id;
+      const expectedEmptyObject = {};
+
+      const {
+        result: {
+          current: { deletePlantFromApi },
+        },
+      } = renderHook(() => usePlantsApi(), { wrapper: providerWrapper });
+
+      const response = await deletePlantFromApi(expectedPlantId);
+
+      expect(response).toStrictEqual(expectedEmptyObject);
+    });
+  });
 });

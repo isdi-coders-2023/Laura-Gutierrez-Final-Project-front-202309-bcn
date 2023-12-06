@@ -1,7 +1,7 @@
 export interface PlantsStructure {
   _id: string;
   name: string;
-  scientificName: string;
+  scientific_name: string;
   use: string;
   properties: string;
   howToUse: string;

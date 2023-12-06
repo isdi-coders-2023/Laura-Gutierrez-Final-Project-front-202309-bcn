@@ -7,6 +7,9 @@ const handler = [
   http.get(`${urlApi}/plants`, async () => {
     return HttpResponse.json({ plants: plantsMock });
   }),
+  http.delete(`${import.meta.env.VITE_API_URL}/plants/:_id`, () => {
+    return HttpResponse.json({});
+  }),
 ];
 
 export default handler;
