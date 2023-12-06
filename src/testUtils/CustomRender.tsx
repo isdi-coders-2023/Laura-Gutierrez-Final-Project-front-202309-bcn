@@ -10,6 +10,7 @@ import { plantsReducer } from "../store/features/plants/plantsSlice";
 import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";
 import { PlantsStructure } from "../store/features/types.js";
+import { ToastContainer } from "react-toastify";
 
 const customRender = (
   children: React.ReactElement,
@@ -25,6 +26,7 @@ const customRender = (
 
   render(
     <BrowserRouter>
+      <ToastContainer />
       <GlobalStyles />
       <ThemeProvider theme={mainTheme}>
         <Provider store={mockStore}>{children}</Provider>
