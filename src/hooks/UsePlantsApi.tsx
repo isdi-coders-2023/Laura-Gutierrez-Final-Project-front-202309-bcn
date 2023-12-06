@@ -6,6 +6,7 @@ import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
 } from "../store/features/ui/uiSlice";
+import { toast } from "react-toastify";
 
 const usePlantsApi = () => {
   axios.defaults.baseURL = import.meta.env.VITE_API_URL;
@@ -28,13 +29,25 @@ const usePlantsApi = () => {
 
   const deletePlantFromApi = useCallback(
     async (id: string): Promise<void> => {
-      dispatch(showLoadingActionCreator());
+      try {
+        dispatch(showLoadingActionCreator());
 
-      const { data } = await axios.delete(`/plants/${id}`);
+        const { data } = await axios.delete(`/plants/${id}`);
 
-      dispatch(hideLoadingActionCreator());
+        toast.success("Plant removed from our inventory!", {
+          style: { backgroundColor: "#055B2DCC", color: "#fff" },
+        });
 
-      return data;
+        dispatch(hideLoadingActionCreator());
+
+        return data;
+      } catch {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("Error: Couldn’t remove plant. Please try again.", {
+          style: { backgroundColor: "#C52323", color: "#fff" },
+        });
+      }
     },
     [dispatch],
   );
