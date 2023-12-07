@@ -5,6 +5,7 @@ const mainTheme: DefaultTheme = {
     lighter: "#EEE9E9",
     light: "#E6D15F",
     medium: "#D5B68A",
+    main: "#305536",
     dark: "#B1A564",
     darker: "#7E5940",
     darkest: "#2D1D09",
