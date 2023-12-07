@@ -7,6 +7,7 @@ import PlantsPage from "../../pages/PlantsPage/PlantsPage";
 import { useAppSelector } from "../../store/hooks";
 import Loading from "../Loading/Loading";
 import ToastStyled from "../Toast/ToastStyled";
+import AddPlantPage from "../../pages/AddPlantPage/AddPlantPage";
 
 const App = (): React.ReactElement => {
   const uiState = useAppSelector((state) => state.uiState);
@@ -19,6 +20,7 @@ const App = (): React.ReactElement => {
       <Routes>
         <Route path="/" element={<Navigate to="/plants" />} />
         <Route path="/plants" element={<PlantsPage />} />
+        <Route path="/add" element={<AddPlantPage />} />
       </Routes>
     </AppStyled>
   );
