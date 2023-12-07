@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-const PlantsPageStyled = styled.main`
+const AddPlantPageStyled = styled.main`
   padding-top: 16px;
   text-align: left;
   padding: 10px;
 
-  .plantspage {
+  .page {
     display: flex;
     justify-content: center;
   }
 
-  .plantspage-text {
+  .page-text {
     font-family: ${({ theme }) => theme.typography.secondaryFont};
     font-weight: 300;
     font-size: 1.25rem;
@@ -19,4 +19,4 @@ const PlantsPageStyled = styled.main`
   }
 `;
 
-export default PlantsPageStyled;
+export default AddPlantPageStyled;
