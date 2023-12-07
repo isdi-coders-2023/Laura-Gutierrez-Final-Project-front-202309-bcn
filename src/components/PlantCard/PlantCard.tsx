@@ -26,8 +26,6 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
     if (plantsResponse) {
       const plants = plantsResponse.plants;
       dispatch(loadPlantsActionCreator(plants));
-    } else {
-      throw new Error("Plant not found.");
     }
   };
 

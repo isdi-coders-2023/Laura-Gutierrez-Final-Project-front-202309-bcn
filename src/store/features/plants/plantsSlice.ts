@@ -25,12 +25,20 @@ const plantsSlice = createSlice({
         (plant) => plant._id !== action.payload,
       ),
     }),
+    addNewPlant: (
+      currentState,
+      action: PayloadAction<PlantsStructure>,
+    ): PlantsStateStructure => ({
+      ...currentState,
+      plants: [...currentState.plants, action.payload],
+    }),
   },
 });
 
 export const {
   loadPlants: loadPlantsActionCreator,
   deletePlant: deletePlantsActionCreator,
+  addNewPlant: addNewPlantActionCreator,
 } = plantsSlice.actions;
 
 export const plantsReducer = plantsSlice.reducer;

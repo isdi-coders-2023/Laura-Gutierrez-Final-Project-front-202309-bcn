@@ -1,6 +1,9 @@
+import { UiStructure } from "./types";
 import {
+  hideErrorActionCreator,
   hideLoadingActionCreator,
   initialUiState,
+  showErrorActionCreator,
   showLoadingActionCreator,
   uiReducer,
 } from "./uiSlice";
@@ -29,6 +32,32 @@ describe("Given a hideLoading slice", () => {
       const isLoadingFalse = { ...initialUiState, isLoading: false };
 
       expect(isLoadingTrue).toStrictEqual(isLoadingFalse);
+    });
+  });
+
+  describe("When it receives an initial state of false and an action creator of showError", () => {
+    test("Then it should return the new state with true", () => {
+      const initialUiState: UiStructure = {
+        isError: false,
+        isLoading: false,
+      };
+
+      const newUiState = uiReducer(initialUiState, showErrorActionCreator());
+
+      expect(newUiState.isError).toBeTruthy();
+    });
+  });
+
+  describe("When it receives an initial state of true and an action creator of hideError", () => {
+    test("Then it should return the new state with false", () => {
+      const initialUiState: UiStructure = {
+        isError: true,
+        isLoading: false,
+      };
+
+      const newUiState = uiReducer(initialUiState, hideErrorActionCreator());
+
+      expect(newUiState.isError).toBeFalsy();
     });
   });
 });
