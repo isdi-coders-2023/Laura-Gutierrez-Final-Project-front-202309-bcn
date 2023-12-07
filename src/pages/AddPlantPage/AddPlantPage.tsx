@@ -1,3 +1,4 @@
+import PlantForm from "../../components/PlantForm/PlantForm";
 import AddPlantPageStyled from "./AddPlantPageStyled";
 
 const AddPlantPage = (): React.ReactElement => {
@@ -7,6 +8,7 @@ const AddPlantPage = (): React.ReactElement => {
         <h2 className="page-text">
           Can’t find your plant in our inventory? Add it here:
         </h2>
+        <PlantForm />
       </div>
     </AddPlantPageStyled>
   );

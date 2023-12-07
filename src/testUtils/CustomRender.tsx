@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { render } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../styles/mainTheme.js";
@@ -9,41 +9,48 @@ import { plantsMock } from "../store/features/plants/mocks/plantsMock.js";
 import { plantsReducer } from "../store/features/plants/plantsSlice";
 import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";
-import { PlantsStructure } from "../store/features/types.js";
 import { ToastContainer } from "react-toastify";
+import { store } from "../store/index.js";
 
-const customRender = (
-  children: React.ReactElement,
-  mockData: PlantsStructure[],
-) => {
+export const getMockStore = () => {
   const mockStore = configureStore({
     reducer: { plantsState: plantsReducer, uiState: uiReducer },
     preloadedState: {
-      plantsState: { plants: mockData },
+      plantsState: { plants: plantsMock },
       uiState: { isLoading: false },
     },
   });
 
-  render(
-    <MemoryRouter>
-      <Provider store={mockStore}>
-        <ThemeProvider theme={mainTheme}>
-          <ToastContainer />
-          <GlobalStyles />
-          {children}
-        </ThemeProvider>
-      </Provider>
-    </MemoryRouter>,
-  );
+  return mockStore;
 };
 
 export const providerWrapper = ({ children }: PropsWithChildren) => {
-  const mockStore = configureStore({
-    reducer: { plantsState: plantsReducer },
-    preloadedState: { plantsState: { plants: plantsMock } },
-  });
-
-  return <Provider store={mockStore}>{children}</Provider>;
+  return <Provider store={store}>{children}</Provider>;
 };
 
-export default customRender;
+export const customRender = (children: React.ReactElement) => {
+  const mockStore = getMockStore();
+
+  render(
+    <BrowserRouter>
+      <ThemeProvider theme={mainTheme}>
+        <ToastContainer />
+        <GlobalStyles />
+        <Provider store={mockStore}>{children}</Provider>
+      </ThemeProvider>
+    </BrowserRouter>,
+  );
+};
+
+export const customRenderWithoutBrowserRouter = (
+  children: React.ReactElement,
+) => {
+  const mockstore = getMockStore();
+
+  render(
+    <ThemeProvider theme={mainTheme}>
+      <GlobalStyles />
+      <Provider store={mockstore}>{children}</Provider>
+    </ThemeProvider>,
+  );
+};

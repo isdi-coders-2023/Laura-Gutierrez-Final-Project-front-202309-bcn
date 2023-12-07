@@ -5,7 +5,7 @@ const PlantCardStyled = styled.article`
   height: 27.125rem;
   align-items: center;
   border-radius: 2rem;
-  border: 0.5px solid ${({ theme }) => theme.colors.darker};
+  border: 0.2px solid ${({ theme }) => theme.colors.dark};
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 2rem;
@@ -32,7 +32,7 @@ const PlantCardStyled = styled.article`
 
   .plant-card__image-container {
     height: 10.375rem;
-    align-self: center;
+    align-self: stretch;
     border-top-right-radius: 2rem;
     border-top-left-radius: 2rem;
     background: ${({ theme }) => theme.colors.dark};

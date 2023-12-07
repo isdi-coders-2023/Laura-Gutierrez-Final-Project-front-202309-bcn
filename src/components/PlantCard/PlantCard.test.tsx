@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/react";
 import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
-import customRender from "../../testUtils/CustomRender";
+import { customRender } from "../../testUtils/CustomRender";
 import PlantCard from "./PlantCard";
 import userEvent from "@testing-library/user-event";
 import server from "../../mocks/node";
@@ -10,9 +10,8 @@ describe("Given a PlantCard component", () => {
   describe("When it receives a 'Oregano' card", () => {
     test("Then it should show 'Oregano' into a heading", () => {
       const expectedHeadingText = plantsMock[0];
-      const mockData = plantsMock;
 
-      customRender(<PlantCard plant={expectedHeadingText} />, mockData);
+      customRender(<PlantCard plant={expectedHeadingText} />);
       const OreganoName = screen.getByRole("heading", {
         name: expectedHeadingText.name,
       });
@@ -25,22 +24,23 @@ describe("Given a PlantCard component", () => {
     const expectedButtonText = "Delete";
 
     test("The it should remove the Oregano card", async () => {
-      const mockData = plantsMock;
-
-      customRender(<PlantCard plant={plantsMock[0]} />, mockData);
+      customRender(<PlantCard plant={plantsMock[0]} />);
 
       const deleteButton = screen.getByRole("button", {
         name: expectedButtonText,
       });
+
       const plantName = screen.getByRole("heading", { name: "Oregano" });
+
       await userEvent.click(deleteButton);
+
       waitFor(() => {
         expect(plantName).not.toBeInTheDocument();
       });
     });
 
     test("Then it should show the positive feedback message 'Plant removed from our inventory!'", async () => {
-      customRender(<PlantCard plant={plantsMock[0]} />, plantsMock);
+      customRender(<PlantCard plant={plantsMock[0]} />);
 
       const deleteButton = screen.getByRole("button", {
         name: expectedButtonText,
@@ -56,7 +56,7 @@ describe("Given a PlantCard component", () => {
     test("Then it should show the negative feedback message 'Error: Couldn’t remove plant. Please try again.'", async () => {
       server.use(...errorHandlers);
 
-      customRender(<PlantCard plant={plantsMock[0]} />, plantsMock);
+      customRender(<PlantCard plant={plantsMock[0]} />);
 
       const deleteButton = screen.getByText(expectedButtonText);
 
