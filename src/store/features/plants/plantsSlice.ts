@@ -16,7 +16,6 @@ const plantsSlice = createSlice({
       ...currentState,
       plants: action.payload,
     }),
-
     deletePlant: (
       currentState,
       action: PayloadAction<string>,

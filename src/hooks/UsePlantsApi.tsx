@@ -34,9 +34,7 @@ const usePlantsApi = () => {
 
         const { data } = await axios.delete(`/plants/${id}`);
 
-        toast.success("Plant removed from our inventory!", {
-          style: { backgroundColor: "#055B2DCC", color: "#fff" },
-        });
+        toast.success("Plant removed from our inventory!");
 
         dispatch(hideLoadingActionCreator());
 
@@ -44,9 +42,7 @@ const usePlantsApi = () => {
       } catch {
         dispatch(hideLoadingActionCreator());
 
-        toast.error("Error: Couldn’t remove plant. Please try again.", {
-          style: { backgroundColor: "#C52323", color: "#fff" },
-        });
+        toast.error("Error: Couldn’t remove plant. Please try again.");
       }
     },
     [dispatch],
