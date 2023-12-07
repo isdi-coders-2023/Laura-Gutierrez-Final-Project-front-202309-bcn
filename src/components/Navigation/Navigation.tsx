@@ -24,7 +24,7 @@ const Navigation = (): React.ReactElement => {
           />
         </li>
         <li>
-          <NavLink to="/plants/add">
+          <NavLink to="/add">
             <img
               src="images/create.svg"
               alt="Create icon with a plus sign."
