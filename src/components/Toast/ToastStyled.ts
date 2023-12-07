@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const ToastStyled = styled(ToastContainer)`
   .toastify-text-icon-color-success {
+    background-color: "#055B2DCC";
     color: ${({ theme }) => theme.colors.light};
   }
   .toastify__icon-color-info {
