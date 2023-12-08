@@ -1,14 +1,16 @@
-import { screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { customRender } from "../../testUtils/CustomRender";
 import PlantForm from "./PlantForm";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a PlantForm component", () => {
+  const actionOnClick = vi.fn();
+
   describe("When it's rendered", () => {
     test("Then it should show a 'Name:' label text.", () => {
       const expectedLabelText = "Name:";
 
-      customRender(<PlantForm />);
+      customRender(<PlantForm submitAction={actionOnClick} />);
 
       const labelText = screen.getByLabelText(expectedLabelText);
 
@@ -19,7 +21,7 @@ describe("Given a PlantForm component", () => {
   test("Then it should show a button with the text 'Upload plant'.", () => {
     const expectedButtonText = "Upload plant";
 
-    customRender(<PlantForm />);
+    customRender(<PlantForm submitAction={actionOnClick} />);
 
     const buttonText = screen.getByText(expectedButtonText);
 
@@ -30,7 +32,7 @@ describe("Given a PlantForm component", () => {
     test("Then it should show the written data in its corresponding input.", async () => {
       const expectedInputText = "Oregano";
 
-      customRender(<PlantForm />);
+      customRender(<PlantForm submitAction={actionOnClick} />);
 
       const labelText = screen.getByLabelText("Name:");
 
@@ -39,6 +41,17 @@ describe("Given a PlantForm component", () => {
       const inputText = screen.getByDisplayValue(expectedInputText);
 
       await waitFor(() => expect(inputText));
+    });
+  });
+
+  describe("When user clicks/taps on the button 'Upload plant'", () => {
+    test("Then it should call the form's onSubmit action", () => {
+      customRender(<PlantForm submitAction={actionOnClick} />);
+
+      const plantForm = screen.getByLabelText("Name:");
+      fireEvent.submit(plantForm);
+
+      expect(actionOnClick).toHaveBeenCalled();
     });
   });
 });
