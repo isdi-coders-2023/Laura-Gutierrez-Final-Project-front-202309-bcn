@@ -26,4 +26,18 @@ export const newPlantsMock: PlantsStructure[] = [
     isPoisonous: false,
     habitat: "Mediterranean warm arid areas.",
   },
+  {
+    _id: "6566158cd11a3f8f1075c7a4",
+    name: "Nutmeg",
+    scientificName: "Myristica fragrans",
+    use: "Culinary/Poison",
+    properties:
+      "Nutmeg is used for flavouring both sweet and savoury dishes. Whole nutmeg can also be ground at home using a grater.",
+    howToUse:
+      "Its a traditional ingredient in mulled cider, mulled wine, junket and eggnog. In Scotland, mace and nutmeg are usually both ingredients in haggis. In Italian cuisine, nutmeg is used as part of the stuffing for many regional meat-filled dumplings like tortellini, as well as for the traditional meatloaf. Nutmeg is a common spice for pumpkin pie and in recipes for other winter squashes, like baked acorn squash. In the Caribbean, nutmeg is often used in drinks, such as the Bushwacker, Painkiller, and Barbados rum punch.",
+    imageUrl:
+      "https://i.ibb.co/ZYW2tJj/cd03d3371d9adc84c1e7d53f2c3e19f1-spices-and-herbs-botanical-prints-1.webp",
+    isPoisonous: true,
+    habitat: "Indonesia.",
+  },
 ];
