@@ -32,6 +32,10 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
+  textarea {
+  resize: none;
+}
+
   a {
     text-decoration: none;
     color: inherit;

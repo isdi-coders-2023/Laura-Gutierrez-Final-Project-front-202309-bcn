@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const PlantFormStyled = styled.form`
-  width: 20.4375rem;
   border-radius: 0.9375rem;
   border: 5px solid ${({ theme }) => theme.colors.darker};
   opacity: 0.95;

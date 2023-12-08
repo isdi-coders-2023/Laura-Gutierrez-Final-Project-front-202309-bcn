@@ -31,8 +31,9 @@ const PlantCardStyled = styled.article`
   }
 
   .plant-card__image-container {
+    display: flex;
     height: 10.375rem;
-    align-self: stretch;
+    justify-content: center;
     border-top-right-radius: 2rem;
     border-top-left-radius: 2rem;
     background: ${({ theme }) => theme.colors.dark};
@@ -40,9 +41,10 @@ const PlantCardStyled = styled.article`
   }
 
   .plant-card__image {
-    max-width: 100%;
+    max-width: 60%;
     max-height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    align-items: center;
   }
 `;
 
