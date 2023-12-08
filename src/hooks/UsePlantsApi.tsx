@@ -61,7 +61,10 @@ const usePlantsApi = () => {
       try {
         const {
           data: { plant },
-        } = await axios.post<{ plant: PlantsStructure }>("/add", newPlant);
+        } = await axios.post<{ plant: PlantsStructure }>(
+          "plants/add",
+          newPlant,
+        );
         dispatch(hideLoadingActionCreator());
 
         toast.success("Plant added successfully!", {

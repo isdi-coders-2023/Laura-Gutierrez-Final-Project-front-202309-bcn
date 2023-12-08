@@ -11,7 +11,7 @@ export const plantsMock: PlantsStructure[] = [
     howToUse:
       "Use it in many savoury dishes as seasoning, also in sauces. You can consume oregano oil in capsules. ",
     imageUrl: "https://i.ibb.co/pxK6J2P/origano.webp",
-    isPoisonous: false,
+    isPoisonous: "false",
     habitat: "Grasslands, bushes, rocky areas.",
   },
   {
@@ -23,7 +23,7 @@ export const plantsMock: PlantsStructure[] = [
     howToUse:
       "used for the treatment of different kinds of disorders including seizure, ulcers, gout, rheumatism, inflammation, dizziness, tremor, paralysis, diarrhea, and hyperglycemia.",
     imageUrl: "https://i.ibb.co/Bj0rNqq/Salvia-officinalis.webp",
-    isPoisonous: false,
+    isPoisonous: "false",
     habitat: "Mediterranean warm arid areas.",
   },
 ];

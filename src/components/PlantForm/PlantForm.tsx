@@ -21,7 +21,7 @@ const PlantForm = ({
     properties: "",
     howToUse: "",
     imageUrl: "",
-    isPoisonous: false,
+    isPoisonous: "",
     habitat: "",
   };
 

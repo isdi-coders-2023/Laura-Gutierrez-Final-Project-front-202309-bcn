@@ -6,7 +6,7 @@ export interface PlantsStructure {
   properties: string;
   howToUse: string;
   imageUrl: string;
-  isPoisonous: boolean;
+  isPoisonous: string;
   habitat: string;
 }
 
