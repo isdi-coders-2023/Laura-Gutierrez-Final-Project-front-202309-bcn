@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
-import { PlantStructureWithoutId } from "../../store/features/types";
+import {
+  PlantStructureWithoutId,
+  PlantsStructure,
+} from "../../store/features/types";
 import PlantFormStyled from "./PlantFormStyled";
 
-const PlantForm = (): React.ReactElement => {
+interface PlantFormProps {
+  submitAction: (newPlant: PlantsStructure) => void;
+  initialState?: PlantStructureWithoutId;
+}
+
+const PlantForm = ({
+  submitAction,
+  initialState,
+}: PlantFormProps): React.ReactElement => {
   const emptyPlant: PlantStructureWithoutId = {
     name: "",
     scientificName: "",
@@ -14,8 +25,15 @@ const PlantForm = (): React.ReactElement => {
     habitat: "",
   };
 
+  const currentInitialState = initialState ? initialState : emptyPlant;
+
   const [newPlant, setNewPlant] = useState<PlantStructureWithoutId>(emptyPlant);
-  useState<PlantStructureWithoutId>(emptyPlant);
+  useState<PlantStructureWithoutId>(currentInitialState);
+
+  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitAction(newPlant as PlantsStructure);
+  };
 
   const onChangeEditPlant = (
     event:
@@ -35,7 +53,11 @@ const PlantForm = (): React.ReactElement => {
   }, [newPlant]);
 
   return (
-    <PlantFormStyled className="form" autoComplete="off">
+    <PlantFormStyled
+      className="form"
+      onSubmit={onFormSubmit}
+      autoComplete="off"
+    >
       <div className="form__div">
         <label className="form__label" htmlFor="name">
           Name:

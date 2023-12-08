@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useCallback } from "react";
-import { PlantsStateStructure, PlantsStructure } from "../store/features/types";
+import {
+  PlantStructureWithoutId,
+  PlantsStateStructure,
+  PlantsStructure,
+} from "../store/features/types";
 import { useAppDispatch } from "../store/hooks";
 import {
   hideLoadingActionCreator,
@@ -48,7 +52,33 @@ const usePlantsApi = () => {
     [dispatch],
   );
 
-  return { getPlantsApi, deletePlantFromApi };
+  const addNewPlant = useCallback(
+    async (
+      newPlant: PlantStructureWithoutId,
+    ): Promise<PlantsStructure | undefined> => {
+      dispatch(showLoadingActionCreator());
+
+      try {
+        const {
+          data: { plant },
+        } = await axios.post<{ plant: PlantsStructure }>("/add", newPlant);
+        dispatch(hideLoadingActionCreator());
+
+        toast.success("Plant added successfully!", {
+          className: "toast toast--success",
+        });
+
+        return plant;
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("Error: Could not add plant. Please try again.");
+      }
+    },
+    [dispatch],
+  );
+
+  return { getPlantsApi, deletePlantFromApi, addNewPlant };
 };
 
 export default usePlantsApi;
