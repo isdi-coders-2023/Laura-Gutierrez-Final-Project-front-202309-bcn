@@ -7,13 +7,9 @@ import PlantFormStyled from "./PlantFormStyled";
 
 interface PlantFormProps {
   submitAction: (newPlant: PlantsStructure) => void;
-  initialState?: PlantStructureWithoutId;
 }
 
-const PlantForm = ({
-  submitAction,
-  initialState,
-}: PlantFormProps): React.ReactElement => {
+const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
   const emptyPlant: PlantStructureWithoutId = {
     name: "",
     scientificName: "",
@@ -25,10 +21,7 @@ const PlantForm = ({
     habitat: "",
   };
 
-  const currentInitialState = initialState ? initialState : emptyPlant;
-
   const [newPlant, setNewPlant] = useState<PlantStructureWithoutId>(emptyPlant);
-  useState<PlantStructureWithoutId>(currentInitialState);
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
