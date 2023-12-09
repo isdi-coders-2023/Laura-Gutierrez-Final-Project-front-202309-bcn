@@ -7,7 +7,6 @@ import PlantFormStyled from "./PlantFormStyled";
 
 interface PlantFormProps {
   submitAction: (newPlant: PlantsStructure) => void;
-  initialState?: PlantStructureWithoutId;
 }
 
 const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
@@ -23,7 +22,6 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
   };
 
   const [newPlant, setNewPlant] = useState<PlantStructureWithoutId>(emptyPlant);
-  useState<PlantStructureWithoutId>(emptyPlant);
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
