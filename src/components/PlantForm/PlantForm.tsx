@@ -116,7 +116,7 @@ const PlantForm = ({
         </label>
         <input
           className="form__input"
-          type="text"
+          type="url"
           id="imageUrl"
           value={newPlant.imageUrl}
           onChange={onChangeEditPlant}
