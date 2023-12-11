@@ -70,7 +70,7 @@ describe("Given a usePlantsApi custom hook", () => {
         "Error: Could not add plant. Please try again.";
 
       customRenderWithoutBrowserRouter(
-        <MemoryRouter initialEntries={["/plants/add"]}>
+        <MemoryRouter initialEntries={["/add"]}>
           <App />
         </MemoryRouter>,
       );
