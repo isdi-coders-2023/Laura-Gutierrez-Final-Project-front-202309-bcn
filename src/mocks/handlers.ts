@@ -17,12 +17,8 @@ const handler = [
 ];
 
 export const errorHandlers = [
-  http.get(`${urlApi}/plants`, async () => {
-    HttpResponse.error();
-  }),
-  http.delete(`${urlApi}/plants/:_id`, async () => {
-    HttpResponse.error();
-  }),
+  http.get(`${urlApi}/plants`, async () => HttpResponse.error()),
+  http.delete(`${urlApi}/plants/:_id`, async () => HttpResponse.error()),
   http.post(`${urlApi}/plants/add`, () => HttpResponse.error()),
 ];
 

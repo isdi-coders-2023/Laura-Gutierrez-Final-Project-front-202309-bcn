@@ -26,6 +26,7 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     submitAction(newPlant as PlantsStructure);
+    scrollTo(0, 0);
   };
 
   const onChangeEditPlant = (
@@ -79,16 +80,16 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
       </div>
       <div className="form__div">
         <label className="form__label" htmlFor="use">
-          Use (culinary/medicinal/poison):
+          Use:
         </label>
-        <input
-          className="form__input"
-          type="text"
-          id="use"
-          value={newPlant.use}
-          onChange={onChangeEditPlant}
-          required
-        />
+        <select className="form__input" id="use" value={newPlant.use} required>
+          <option>Culinary</option>
+          <option>Medicinal</option>
+          <option>Poison</option>
+          <option>Culinary/Medicinal</option>
+          <option>Culinary/Poison</option>
+          <option>Medicinal/Poison</option>
+        </select>
       </div>
       <div className="form__div">
         <label className="form__label" htmlFor="habitat">
@@ -151,7 +152,7 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
           required
         />
       </div>
-      <div className="form__div">
+      <div className="form__container">
         <button className="form__button" type="submit">
           Upload plant
         </button>

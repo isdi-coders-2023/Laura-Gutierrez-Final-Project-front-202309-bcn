@@ -6,7 +6,6 @@ const PlantFormStyled = styled.form`
   opacity: 0.95;
   background: ${({ theme }) => theme.colors.main};
   padding: 20px;
-  display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: center;
@@ -19,6 +18,11 @@ const PlantFormStyled = styled.form`
       position: relative;
       align-items: center;
       padding-top: 6px;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: center;
     }
 
     &__input {
