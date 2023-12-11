@@ -11,6 +11,7 @@ import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
 import { store } from "../store/index.js";
+import { PlantsStructure } from "../store/features/types.js";
 
 export const getMockStore = () => {
   const mockStore = configureStore({
@@ -18,17 +19,7 @@ export const getMockStore = () => {
     preloadedState: {
       plantsState: {
         plants: plantsMock,
-        selectedPlant: {
-          _id: "",
-          name: "",
-          scientificName: "",
-          use: "",
-          properties: "",
-          howToUse: "",
-          imageUrl: "",
-          isPoisonous: "",
-          habitat: "",
-        },
+        selectedPlant: {} as PlantsStructure,
       },
       uiState: { isLoading: false },
     },
