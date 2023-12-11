@@ -22,9 +22,10 @@ const usePlantsApi = () => {
   > => {
     dispatch(showLoadingActionCreator());
 
-    const { data: plants } = await axios.get<{ plants: PlantsStructure[] }>(
-      "/plants",
-    );
+    const { data: plants } = await axios.get<{
+      plants: PlantsStructure[];
+      selectedPlant: PlantsStructure;
+    }>("/plants");
 
     dispatch(hideLoadingActionCreator());
 

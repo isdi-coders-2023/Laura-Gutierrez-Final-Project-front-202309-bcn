@@ -15,7 +15,20 @@ import { newPlantsMock } from "../store/features/plants/mocks/newPlantsMock";
 describe("Given a usePlantsApi custom hook", () => {
   describe("When it gets the information of Oregano and Salvia", () => {
     test("Then it should show Oregano and Salvia's information", async () => {
-      const expectedPlants: PlantsStateStructure = { plants: plantsMock };
+      const expectedPlants: PlantsStateStructure = {
+        plants: plantsMock,
+        selectedPlant: {
+          _id: "",
+          name: "",
+          scientificName: "",
+          use: "",
+          properties: "",
+          howToUse: "",
+          imageUrl: "",
+          isPoisonous: "",
+          habitat: "",
+        },
+      };
 
       const {
         result: {

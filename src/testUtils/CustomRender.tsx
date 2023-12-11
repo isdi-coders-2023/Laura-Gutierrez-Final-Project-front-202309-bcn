@@ -11,12 +11,13 @@ import { uiReducer } from "../store/features/ui/uiSlice";
 import { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
 import { store } from "../store/index.js";
+import { plantMock } from "../store/features/plants/mocks/plantMock.js";
 
 export const getMockStore = () => {
   const mockStore = configureStore({
     reducer: { plantsState: plantsReducer, uiState: uiReducer },
     preloadedState: {
-      plantsState: { plants: plantsMock },
+      plantsState: { plants: plantsMock, selectedPlant: plantMock },
       uiState: { isLoading: false },
     },
   });
