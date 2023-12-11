@@ -8,7 +8,9 @@ describe("Given a Button component", () => {
     test("Then it should show the text 'Modify'", () => {
       const expectedButtonText = "Modify";
 
-      customRender(<Button children={expectedButtonText} type="button" />);
+      customRender(
+        <Button className="" children={expectedButtonText} type="button" />,
+      );
       const button = screen.getByRole("button", { name: expectedButtonText });
 
       expect(button).toBeInTheDocument();
@@ -20,7 +22,11 @@ describe("Given a Button component", () => {
       const expectedDeleteButtonText = "Delete";
 
       customRender(
-        <Button children={expectedDeleteButtonText} type={"button"} />,
+        <Button
+          className=""
+          children={expectedDeleteButtonText}
+          type={"button"}
+        />,
       );
 
       const button = screen.getByRole("button", {
@@ -41,6 +47,7 @@ describe("Given a Button component", () => {
           children={expectedButtonText}
           actionOnClick={deleteActionMock}
           type={"submit"}
+          className={""}
         />,
       );
 

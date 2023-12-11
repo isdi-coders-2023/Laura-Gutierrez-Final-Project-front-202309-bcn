@@ -53,13 +53,6 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
           </li>
         </ul>
         <div className="plant-card__button-container">
-          <Button
-            className="plant-card__pantry"
-            type="button"
-            aria-label="pantry icon"
-          >
-            <img src="images/pantry.svg" alt="pantry icon" />
-          </Button>
           <div className="plant-card__large-buttons">
             <Button
               children="Learn more"
