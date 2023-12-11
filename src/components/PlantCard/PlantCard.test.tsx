@@ -56,18 +56,21 @@ describe("Given a PlantCard component", () => {
     test("Then it should show the negative feedback message 'Error: Couldn’t remove plant. Please try again.'", async () => {
       server.use(...errorHandlers);
 
-      customRender(<PlantCard plant={plantsMock[0]} />);
-
-      const deleteButton = screen.getByText(expectedButtonText);
-
-      await userEvent.click(deleteButton);
-
+      const deleteButtonText = "Delete";
       const expectedErrorMessage =
         "Error: Couldn’t remove plant. Please try again.";
 
-      waitFor(async () => {
-        expect(screen.getByText(expectedErrorMessage)).toBeInTheDocument();
+      customRender(<PlantCard plant={plantsMock[0]} />);
+
+      const deleteButton = screen.getByRole("button", {
+        name: deleteButtonText,
       });
+
+      await userEvent.click(deleteButton);
+
+      const errorText = screen.getByText(expectedErrorMessage);
+
+      expect(errorText).toBeInTheDocument();
     });
   });
 });

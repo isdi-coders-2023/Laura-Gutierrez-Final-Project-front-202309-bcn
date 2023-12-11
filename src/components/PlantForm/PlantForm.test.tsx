@@ -86,9 +86,7 @@ describe("Given a PlantForm component", () => {
         screen.getByLabelText("Scientific name:");
       await userEvent.type(inputScientificNameElement, expectedInputText);
 
-      const inputUseElement = screen.getByLabelText(
-        "Use (culinary/medicinal/poison):",
-      );
+      const inputUseElement = screen.getByLabelText("Use:");
       await userEvent.type(inputUseElement, expectedInputText);
 
       const inputHabitatElement = screen.getByLabelText("Habitat:");
