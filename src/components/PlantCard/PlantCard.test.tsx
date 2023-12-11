@@ -37,7 +37,7 @@ describe("Given a PlantCard component", () => {
       });
     });
 
-    test("Then it should show the positive feedback message 'Plant removed from our inventory!'", async () => {
+    test("Then it should show the positive toastify feedback message 'Plant removed from our inventory!'", async () => {
       customRender(<PlantCard plant={plantsMock[0]} />);
 
       const deleteButton = screen.getByRole("button", {
@@ -51,4 +51,6 @@ describe("Given a PlantCard component", () => {
       expect(screen.getByText(expectedMessage)).toBeInTheDocument();
     });
   });
+
+  test("Then it should show toastify's negative message 'Error: Couldn’t remove plant. Please try again.'", () => {});
 });

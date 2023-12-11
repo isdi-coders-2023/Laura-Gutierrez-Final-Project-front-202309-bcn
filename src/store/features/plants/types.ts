@@ -12,4 +12,5 @@ export interface PlantsStructure {
 
 export interface PlantsStateStructure {
   plants: PlantsStructure[];
+  selectedPlant: PlantsStructure;
 }
