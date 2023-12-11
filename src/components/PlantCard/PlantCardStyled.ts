@@ -28,6 +28,8 @@ const PlantCardStyled = styled.article`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   .plant-card__image-container {
@@ -45,6 +47,12 @@ const PlantCardStyled = styled.article`
     max-height: 100%;
     object-fit: cover;
     align-items: center;
+  }
+
+  .button__pantry {
+    width: 50px;
+    height: 50px;
+    padding: 0px;
   }
 `;
 

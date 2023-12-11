@@ -12,12 +12,16 @@ const Button = ({
   type,
   actionOnClick,
 }: ButtonProps): React.ReactElement => {
-  const className = "button";
-
   return (
-    <ButtonStyled className={className} type={type} onClick={actionOnClick}>
-      {children}
-    </ButtonStyled>
+    (
+      <ButtonStyled className="" type={type} onClick={actionOnClick}>
+        {children}
+      </ButtonStyled>
+    ) || (
+      <ButtonStyled type={type} onClick={actionOnClick}>
+        {children}
+      </ButtonStyled>
+    )
   );
 };
 
