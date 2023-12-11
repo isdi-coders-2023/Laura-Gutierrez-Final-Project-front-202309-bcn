@@ -5,7 +5,7 @@ import {
   loadSelectedPlantActionCreator,
 } from "../plantsSlice";
 import { PlantsStateStructure } from "../../types";
-import { plantMock } from "../mocks/plantMock";
+import { addedPlantMock } from "../mocks/addedPlantMock";
 
 describe("Given a plantsReducer", () => {
   describe("When it receives an empty list of plants", () => {
@@ -54,10 +54,10 @@ describe("Given a plantsReducer", () => {
 
       const expectedNewState: PlantsStateStructure = {
         plants: plantsMock,
-        selectedPlant: plantMock,
+        selectedPlant: addedPlantMock,
       };
 
-      const loadSelectedAction = loadSelectedPlantActionCreator(plantMock);
+      const loadSelectedAction = loadSelectedPlantActionCreator(addedPlantMock);
 
       const newState: PlantsStateStructure = plantsReducer(
         initialState,

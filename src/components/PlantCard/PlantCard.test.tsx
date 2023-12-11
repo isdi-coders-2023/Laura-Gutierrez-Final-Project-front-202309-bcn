@@ -16,41 +16,59 @@ describe("Given a PlantCard component", () => {
 
       expect(OreganoName).toBeInTheDocument();
     });
-  });
 
-  describe("When the card with Oregano is rendered and the user clicks on the button 'Delete'", () => {
-    const expectedButtonText = "Delete";
+    test("Then it should show a button with the text 'Modify'", () => {
+      const expectedButtonText = "Modify";
 
-    test("The it should remove the Oregano card", async () => {
       customRender(<PlantCard plant={plantsMock[0]} />);
 
-      const deleteButton = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
+      const button = screen.getByText(expectedButtonText);
 
-      const plantName = screen.getByRole("heading", { name: "Oregano" });
-
-      await userEvent.click(deleteButton);
-
-      waitFor(() => {
-        expect(plantName).not.toBeInTheDocument();
-      });
+      expect(button).toBeInTheDocument();
     });
 
-    test("Then it should show the positive toastify feedback message 'Plant removed from our inventory!'", async () => {
+    test("Then it should show a button with the text 'Delete'", () => {
+      const expectedButtonText = "Delete";
+
       customRender(<PlantCard plant={plantsMock[0]} />);
 
-      const deleteButton = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
+      const button = screen.getByText(expectedButtonText);
 
-      await userEvent.click(deleteButton);
+      expect(button).toBeInTheDocument();
+    });
+  });
+});
 
-      const expectedMessage = "Plant removed from our inventory!";
+describe("When the card with Oregano is rendered and the user clicks on the button 'Delete'", () => {
+  const expectedButtonText = "Delete";
 
-      expect(screen.getByText(expectedMessage)).toBeInTheDocument();
+  test("The it should remove the Oregano card", async () => {
+    customRender(<PlantCard plant={plantsMock[0]} />);
+
+    const deleteButton = screen.getByRole("button", {
+      name: expectedButtonText,
+    });
+
+    const plantName = screen.getByRole("heading", { name: "Oregano" });
+
+    await userEvent.click(deleteButton);
+
+    waitFor(() => {
+      expect(plantName).not.toBeInTheDocument();
     });
   });
 
-  test("Then it should show toastify's negative message 'Error: Couldn’t remove plant. Please try again.'", () => {});
+  test("Then it should show the positive toastify feedback message 'Plant removed from our inventory!'", async () => {
+    customRender(<PlantCard plant={plantsMock[0]} />);
+
+    const deleteButton = screen.getByRole("button", {
+      name: expectedButtonText,
+    });
+
+    await userEvent.click(deleteButton);
+
+    const expectedMessage = "Plant removed from our inventory!";
+
+    expect(screen.getByText(expectedMessage)).toBeInTheDocument();
+  });
 });

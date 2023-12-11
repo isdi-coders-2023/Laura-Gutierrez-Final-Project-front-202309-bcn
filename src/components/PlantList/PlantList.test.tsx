@@ -13,4 +13,16 @@ describe("Given a PlantList component", () => {
       expect(listItemsLength).toBe(expectedPlantsLength);
     });
   });
+
+  describe("When it is rendered", () => {
+    test("Then it should show a pantry button with the alternative text 'Oregano'", () => {
+      const expectedAltText = "Oregano";
+
+      customRender(<PlantList />);
+
+      const image = screen.getByAltText(expectedAltText);
+
+      expect(image).toBeInTheDocument();
+    });
+  });
 });

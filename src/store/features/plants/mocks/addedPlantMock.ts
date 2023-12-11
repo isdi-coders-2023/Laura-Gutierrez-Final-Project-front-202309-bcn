@@ -1,6 +1,6 @@
 import { type PlantsStructure } from "../../types";
 
-export const plantMock: PlantsStructure = {
+export const addedPlantMock: PlantsStructure = {
   _id: "6566158cd11a3f8f1075c7a1",
   name: "Oregano",
   scientificName: "Origanum vulgare",

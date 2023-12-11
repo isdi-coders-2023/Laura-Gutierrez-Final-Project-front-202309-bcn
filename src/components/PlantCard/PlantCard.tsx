@@ -56,13 +56,19 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
           <Button
             className="plant-card__pantry"
             type="button"
-            aria-label="plant-card__pantry"
-          />
+            aria-label="pantry icon"
+          >
+            <img src="images/pantry.svg" alt="pantry icon" />
+          </Button>
           <div className="plant-card__large-buttons">
-            <Button text="Learn more" type="button" aria-label="Learn more" />
-            <Button text="Modify" type="button" aria-label="Modify" />
             <Button
-              text="Delete"
+              children="Learn more"
+              type="button"
+              aria-label="Learn more"
+            />
+            <Button children="Modify" type="button" aria-label="Modify" />
+            <Button
+              children="Delete"
               type="button"
               aria-label="Delete"
               actionOnClick={() => {
