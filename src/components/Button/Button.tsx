@@ -1,29 +1,23 @@
+import { PropsWithChildren } from "react";
 import ButtonStyled from "./ButtonStyled";
 
-interface ButtonProps {
-  text?: string;
+interface ButtonProps extends PropsWithChildren {
   type: "submit" | "button";
   actionOnClick?: () => void;
   className?: string;
 }
 
 const Button = ({
-  text,
+  children,
   type,
   actionOnClick,
 }: ButtonProps): React.ReactElement => {
   const className = "button";
 
-  return text ? (
+  return (
     <ButtonStyled className={className} type={type} onClick={actionOnClick}>
-      {text}
+      {children}
     </ButtonStyled>
-  ) : (
-    <ButtonStyled
-      className={"plant-card__pantry"}
-      type={type}
-      onClick={actionOnClick}
-    />
   );
 };
 

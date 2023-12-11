@@ -26,7 +26,6 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     submitAction(newPlant as PlantsStructure);
-    scrollTo(0, 0);
   };
 
   const onChangeEditPlant = (

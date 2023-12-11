@@ -16,39 +16,59 @@ describe("Given a PlantCard component", () => {
 
       expect(OreganoName).toBeInTheDocument();
     });
+
+    test("Then it should show a button with the text 'Modify'", () => {
+      const expectedButtonText = "Modify";
+
+      customRender(<PlantCard plant={plantsMock[0]} />);
+
+      const button = screen.getByText(expectedButtonText);
+
+      expect(button).toBeInTheDocument();
+    });
+
+    test("Then it should show a button with the text 'Delete'", () => {
+      const expectedButtonText = "Delete";
+
+      customRender(<PlantCard plant={plantsMock[0]} />);
+
+      const button = screen.getByText(expectedButtonText);
+
+      expect(button).toBeInTheDocument();
+    });
+  });
+});
+
+describe("When the card with Oregano is rendered and the user clicks on the button 'Delete'", () => {
+  const expectedButtonText = "Delete";
+
+  test("The it should remove the Oregano card", async () => {
+    customRender(<PlantCard plant={plantsMock[0]} />);
+
+    const deleteButton = screen.getByRole("button", {
+      name: expectedButtonText,
+    });
+
+    const plantName = screen.getByRole("heading", { name: "Oregano" });
+
+    await userEvent.click(deleteButton);
+
+    waitFor(() => {
+      expect(plantName).not.toBeInTheDocument();
+    });
   });
 
-  describe("When the card with Oregano is rendered and the user clicks on the button 'Delete'", () => {
-    const expectedButtonText = "Delete";
+  test("Then it should show the positive toastify feedback message 'Plant removed from our inventory!'", async () => {
+    customRender(<PlantCard plant={plantsMock[0]} />);
 
-    test("The it should remove the Oregano card", async () => {
-      customRender(<PlantCard plant={plantsMock[0]} />);
-
-      const deleteButton = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
-
-      const plantName = screen.getByRole("heading", { name: "Oregano" });
-
-      await userEvent.click(deleteButton);
-
-      waitFor(() => {
-        expect(plantName).not.toBeInTheDocument();
-      });
+    const deleteButton = screen.getByRole("button", {
+      name: expectedButtonText,
     });
 
-    test("Then it should show the positive feedback message 'Plant removed from our inventory!'", async () => {
-      customRender(<PlantCard plant={plantsMock[0]} />);
+    await userEvent.click(deleteButton);
 
-      const deleteButton = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
+    const expectedMessage = "Plant removed from our inventory!";
 
-      await userEvent.click(deleteButton);
-
-      const expectedMessage = "Plant removed from our inventory!";
-
-      expect(screen.getByText(expectedMessage)).toBeInTheDocument();
-    });
+    expect(screen.getByText(expectedMessage)).toBeInTheDocument();
   });
 });

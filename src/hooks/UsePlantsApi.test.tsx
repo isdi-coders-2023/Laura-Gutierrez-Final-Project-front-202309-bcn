@@ -5,7 +5,6 @@ import {
   providerWrapper,
 } from "../testUtils/CustomRender";
 import { renderHook, screen } from "@testing-library/react";
-import { PlantsStateStructure } from "../store/features/types";
 import server from "../mocks/node";
 import { errorHandlers } from "../mocks/handlers";
 import { MemoryRouter } from "react-router-dom";
@@ -15,7 +14,7 @@ import { newPlantsMock } from "../store/features/plants/mocks/newPlantsMock";
 describe("Given a usePlantsApi custom hook", () => {
   describe("When it gets the information of Oregano and Salvia", () => {
     test("Then it should show Oregano and Salvia's information", async () => {
-      const expectedPlants: PlantsStateStructure = { plants: plantsMock };
+      const expectedPlants = { plants: plantsMock };
 
       const {
         result: {

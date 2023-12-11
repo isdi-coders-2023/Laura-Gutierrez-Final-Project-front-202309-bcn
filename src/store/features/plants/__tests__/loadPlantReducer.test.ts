@@ -8,6 +8,17 @@ describe("Given a plantsReducer reducer", () => {
       const emptyPlantList = plantsMock;
       const currentPlantListState: PlantsStateStructure = {
         plants: [],
+        selectedPlant: {
+          _id: "",
+          name: "",
+          scientificName: "",
+          use: "",
+          properties: "",
+          howToUse: "",
+          imageUrl: "",
+          isPoisonous: "",
+          habitat: "",
+        },
       };
 
       const newListState = plantsReducer(

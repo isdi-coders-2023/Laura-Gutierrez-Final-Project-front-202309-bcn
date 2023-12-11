@@ -23,6 +23,7 @@ export interface PlantStructureWithoutId {
 
 export interface PlantsStateStructure {
   plants: PlantsStructure[];
+  selectedPlant: PlantsStructure;
 }
 
 export interface UiStructure {

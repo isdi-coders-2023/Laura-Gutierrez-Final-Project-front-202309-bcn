@@ -16,7 +16,20 @@ export const getMockStore = () => {
   const mockStore = configureStore({
     reducer: { plantsState: plantsReducer, uiState: uiReducer },
     preloadedState: {
-      plantsState: { plants: plantsMock },
+      plantsState: {
+        plants: plantsMock,
+        selectedPlant: {
+          _id: "",
+          name: "",
+          scientificName: "",
+          use: "",
+          properties: "",
+          howToUse: "",
+          imageUrl: "",
+          isPoisonous: "",
+          habitat: "",
+        },
+      },
       uiState: { isLoading: false },
     },
   });

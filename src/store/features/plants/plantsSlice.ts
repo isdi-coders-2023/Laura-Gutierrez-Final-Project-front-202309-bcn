@@ -3,6 +3,17 @@ import { PlantsStateStructure, PlantsStructure } from "../types";
 
 const initialPlantsSlice: PlantsStateStructure = {
   plants: [],
+  selectedPlant: {
+    _id: "",
+    name: "",
+    scientificName: "",
+    use: "",
+    properties: "",
+    howToUse: "",
+    imageUrl: "",
+    isPoisonous: "",
+    habitat: "",
+  },
 };
 
 const plantsSlice = createSlice({
@@ -32,6 +43,13 @@ const plantsSlice = createSlice({
       ...currentState,
       plants: [...currentState.plants, action.payload],
     }),
+    loadSelectedPlant: (
+      currentState,
+      action: PayloadAction<PlantsStructure>,
+    ): PlantsStateStructure => ({
+      ...currentState,
+      selectedPlant: action.payload,
+    }),
   },
 });
 
@@ -39,6 +57,7 @@ export const {
   loadPlants: loadPlantsActionCreator,
   deletePlant: deletePlantsActionCreator,
   addNewPlant: addNewPlantActionCreator,
+  loadSelectedPlant: loadSelectedPlantActionCreator,
 } = plantsSlice.actions;
 
 export const plantsReducer = plantsSlice.reducer;

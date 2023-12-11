@@ -8,7 +8,7 @@ import { MemoryRouter } from "react-router-dom";
 
 describe("Given an App component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show 'Herbolarium logo with a cauldrum and herbs' logo", () => {
+    test("Then it should show Herbolarium's logo with the alternative text 'Herbolarium logo with a cauldrum and herbs'", () => {
       const expectedAltText = "Herbolarium logo with a cauldrum and herbs";
 
       customRender(<App />);
@@ -36,5 +36,21 @@ describe("Given an App component", () => {
 
       expect(heading).toBeInTheDocument();
     });
+  });
+
+  test("Then it should show the text 'Oregano' in a heading", () => {
+    const expectedHeadingtext = "Oregano";
+
+    customRenderWithoutBrowserRouter(
+      <MemoryRouter initialEntries={["/plants"]}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const heading = screen.getByRole("heading", {
+      name: expectedHeadingtext,
+    });
+
+    expect(heading).toBeInTheDocument();
   });
 });

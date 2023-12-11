@@ -5,7 +5,20 @@ import { PlantsStateStructure } from "../types";
 describe("Given a plantsSlice with a deletePlant minireducer", () => {
   describe("When it receives a list with Oregano and Salvia", () => {
     test("Then it should return the list of plants without Salvia", () => {
-      const initialState: PlantsStateStructure = { plants: plantsMock };
+      const initialState: PlantsStateStructure = {
+        plants: plantsMock,
+        selectedPlant: {
+          _id: "",
+          name: "",
+          scientificName: "",
+          use: "",
+          properties: "",
+          howToUse: "",
+          imageUrl: "",
+          isPoisonous: "",
+          habitat: "",
+        },
+      };
       const expectedDeletedPlant = "Salvia";
 
       const currentPlantsState = plantsReducer(
