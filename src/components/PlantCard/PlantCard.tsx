@@ -56,7 +56,7 @@ const PlantCard = ({ plant }: PlantCardProps): React.ReactElement => {
           <Button
             className="plant-card__pantry"
             type="button"
-            aria-label="Pantry"
+            aria-label="plant-card__pantry"
           />
           <div className="plant-card__large-buttons">
             <Button text="Learn more" type="button" aria-label="Learn more" />

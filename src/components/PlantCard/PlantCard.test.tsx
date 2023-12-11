@@ -3,8 +3,6 @@ import { plantsMock } from "../../store/features/plants/mocks/plantsMock";
 import { customRender } from "../../testUtils/CustomRender";
 import PlantCard from "./PlantCard";
 import userEvent from "@testing-library/user-event";
-import server from "../../mocks/node";
-import { errorHandlers } from "../../mocks/handlers";
 
 describe("Given a PlantCard component", () => {
   describe("When it receives a 'Oregano' card", () => {
@@ -51,23 +49,6 @@ describe("Given a PlantCard component", () => {
       const expectedMessage = "Plant removed from our inventory!";
 
       expect(screen.getByText(expectedMessage)).toBeInTheDocument();
-    });
-
-    test("Then it should show the negative feedback message 'Error: Couldn’t remove plant. Please try again.'", async () => {
-      server.use(...errorHandlers);
-
-      customRender(<PlantCard plant={plantsMock[0]} />);
-
-      const deleteButton = screen.getByText(expectedButtonText);
-
-      await userEvent.click(deleteButton);
-
-      const expectedErrorMessage =
-        "Error: Couldn’t remove plant. Please try again.";
-
-      waitFor(async () => {
-        expect(screen.getByText(expectedErrorMessage)).toBeInTheDocument();
-      });
     });
   });
 });

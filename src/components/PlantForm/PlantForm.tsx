@@ -31,6 +31,7 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
 
   const onChangeEditPlant = (
     event:
+      | React.ChangeEvent<HTMLSelectElement>
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
@@ -82,13 +83,34 @@ const PlantForm = ({ submitAction }: PlantFormProps): React.ReactElement => {
         <label className="form__label" htmlFor="use">
           Use:
         </label>
-        <select className="form__input" id="use" value={newPlant.use} required>
-          <option>Culinary</option>
-          <option>Medicinal</option>
-          <option>Poison</option>
-          <option>Culinary/Medicinal</option>
-          <option>Culinary/Poison</option>
-          <option>Medicinal/Poison</option>
+        <select
+          onChange={onChangeEditPlant}
+          className="form__input"
+          id="use"
+          value={newPlant.use}
+          required
+        >
+          <option value="options" className="form__input">
+            Select...
+          </option>
+          <option value="Culinary" className="form__input">
+            Culinary
+          </option>
+          <option value="Medicinal" className="form__input">
+            Medicinal
+          </option>
+          <option value="Poison" className="form__input">
+            Poison
+          </option>
+          <option value="CulinaryMedicinal" className="form__input">
+            Culinary/Medicinal
+          </option>
+          <option value="CulinaryPoison" className="form__input">
+            Culinary/Poison
+          </option>
+          <option value="MedicinalPoison" className="form__input">
+            Medicinal/Poison
+          </option>
         </select>
       </div>
       <div className="form__div">
