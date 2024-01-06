@@ -82,7 +82,28 @@ const usePlantsApi = () => {
     [dispatch],
   );
 
-  return { getPlantsApi, deletePlantFromApi, addNewPlant };
+  const loadSelectedPlant = useCallback(
+    async (id: string): Promise<PlantsStructure | void> => {
+      try {
+        dispatch(showLoadingActionCreator());
+
+        const {
+          data: { plant },
+        } = await axios.get<{ plant: PlantsStructure }>(`/plants/${id}`);
+
+        dispatch(hideLoadingActionCreator());
+
+        return plant;
+      } catch {
+        dispatch(hideLoadingActionCreator());
+
+        toast.error("Error: Could not select this plant.");
+      }
+    },
+    [dispatch],
+  );
+
+  return { getPlantsApi, deletePlantFromApi, addNewPlant, loadSelectedPlant };
 };
 
 export default usePlantsApi;

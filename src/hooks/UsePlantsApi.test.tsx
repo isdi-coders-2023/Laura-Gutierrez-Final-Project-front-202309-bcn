@@ -87,4 +87,30 @@ describe("Given a usePlantsApi custom hook", () => {
       expect(errorMessage).toBeInTheDocument();
     });
   });
+
+  describe("When it is called with its loadSelectedPlant function with an 'Oregano' plant and the response fails", () => {
+    test("Then it should show the text 'Error: Could not select this plant.' as a toastify feedback message", async () => {
+      server.use(...errorHandlers);
+
+      const expectedPlantId = plantsMock[0]._id;
+      const feedbackMessage = "Error: Could not select this plant.";
+
+      customRenderWithoutBrowserRouter(
+        <MemoryRouter initialEntries={["/plants/6566158cd11a3f8f1075c7a1"]}>
+          <App />
+        </MemoryRouter>,
+      );
+
+      const {
+        result: {
+          current: { loadSelectedPlant },
+        },
+      } = renderHook(() => usePlantsApi(), { wrapper: providerWrapper });
+
+      await loadSelectedPlant(expectedPlantId);
+      const feedback = await screen.findByText(feedbackMessage);
+
+      expect(feedback).toBeInTheDocument();
+    });
+  });
 });
